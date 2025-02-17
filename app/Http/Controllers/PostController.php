@@ -29,4 +29,14 @@ class PostController extends Controller
     $posts = Post::get();
     return view('libros.index', compact('libros'));
     }
+
+
+    public function nuevoPrueba($id)
+    {
+    $post = new Post();
+    $post->titulo = "Titulo " + rand(2, 18);
+    $post->texto = "Contenido " + rand(2, 18);
+
+    return view('libros.index', compact('libros'));
+    }
 }
