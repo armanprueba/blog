@@ -36,7 +36,19 @@ class PostController extends Controller
     $post = new Post();
     $post->titulo = "Titulo " + rand(2, 18);
     $post->texto = "Contenido " + rand(2, 18);
+    $post->save();
 
-    return view('libros.index', compact('libros'));
+    return redirect()->route('index');
     }
+
+    public function editarPrueba($id)
+    {
+    $post::findOrFail($id);
+    $post->titulo = "Titulo " + rand(2, 18);
+    $post->texto = "Contenido " + rand(2, 18);
+    $post->save();
+
+    return redirect()->route('index');
+    }
+
 }
